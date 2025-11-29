@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE Fashion - Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        nav { position: sticky; top: 0; z-index: 50; }
+        .product-card:hover { transform: translateY(-8px); }
+        .notification { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-black text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span class="text-xl font-bold">LUXE</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-gray-300 transition">Home</a>
+                    <a href="about.html" class="hover:text-gray-300 transition">About</a>
+                    <a href="products.html" class="text-white font-semibold">Products</a>
+                    <a href="payment.html" class="hover:text-gray-300 transition">Cart</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <svg class="h-5 w-5 cursor-pointer hover:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <svg class="h-5 w-5 cursor-pointer hover:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <a href="payment.html" class="relative cursor-pointer">
+                        <svg class="h-5 w-5 hover:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-gray-900 px-4 py-4 space-y-3">
+            <a href="index.html" class="block hover:text-gray-300">Home</a>
+            <a href="about.html" class="block hover:text-gray-300">About</a>
+            <a href="products.html" class="block text-white">Products</a>
+            <a href="payment.html" class="block hover:text-gray-300">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Notification -->
+    <div id="notification" class="hidden fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 notification">
+        Product added to cart!
+    </div>
+
+    <!-- Products Section -->
+    <div class="min-h-screen py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">Our Products</h1>
+            <p class="text-center text-gray-600 mb-12 text-lg">Discover our carefully curated collection</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        👗
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Dresses</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Summer Dress</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.5)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$89.99</p>
+                        <button onclick="addToCart('Summer Dress', 89.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        🧥
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Outerwear</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Leather Jacket</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="text-sm text-gray-600 ml-2">(5.0)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$199.99</p>
+                        <button onclick="addToCart('Leather Jacket', 199.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        👖
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Bottoms</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Denim Jeans</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.0)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$79.99</p>
+                        <button onclick="addToCart('Denim Jeans', 79.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        👟
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Footwear</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Sneakers</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.5)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$129.99</p>
+                        <button onclick="addToCart('Sneakers', 129.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        👜
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Accessories</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Handbag</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="text-sm text-gray-600 ml-2">(5.0)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$149.99</p>
+                        <button onclick="addToCart('Handbag', 149.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        🕶️
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Accessories</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Sunglasses</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.0)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$59.99</p>
+                        <button onclick="addToCart('Sunglasses', 59.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        👕
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Tops</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">T-Shirt</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.0)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$29.99</p>
+                        <button onclick="addToCart('T-Shirt', 29.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 h-64 flex items-center justify-center text-7xl relative">
+                        🧥
+                        <button class="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition">
+                            <svg class="h-5 w-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Outerwear</span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">Blazer</h3>
+                        <div class="flex items-center mb-2">
+                            <span class="text-yellow-400">★★★★</span><span class="text-gray-300">★</span>
+                            <span class="text-sm text-gray-600 ml-2">(4.5)</span>
+                        </div>
+                        <p class="text-xl font-bold text-purple-600 mb-3">$159.99</p>
+                        <button onclick="addToCart('Blazer', 159.99)" class="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition flex items-center justify-center space-x-2">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="payment.html" class="inline-block bg-
